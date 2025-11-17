@@ -1,0 +1,120 @@
+/* Full-screen colorful gradient */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional floating blobs (using pseudo-elements) */
+.auth-container::before,
+.auth-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}
+.auth-container::before {
+  width: 300px;
+  height: 300px;
+  background: #ff6b6b;
+  top: -100px;
+  left: -100px;
+}
+.auth-container::after {
+  width: 400px;
+  height: 400px;
+  background: #f093fb;
+  bottom: -150px;
+  right: -150px;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) }
+  50%    { transform: translateY(20px) }
+}
+
+/* The frosted-glass form card */
+.auth-page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  color: #fff;
+  text-align: center;
+}
+
+/* Logo or title */
+.auth-page .logo {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg,#ffe259,#ffa751);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Headings */
+.auth-page h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Form fields */
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+.auth-form input {
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.auth-form input:focus {
+  background: rgba(255,255,255,0.35);
+  outline: none;
+}
+
+/* Input icons */
+.auth-form input[type="email"]  { background-image: url("../icons/mail.svg"); }
+.auth-form input[type="password"] { background-image: url("../icons/lock.svg"); }
+.auth-form input::placeholder { color: rgba(255,255,255,0.7); }
+.auth-form input {
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+}
+
+/* Gradient button */
+.auth-form button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Error text */
+.auth-error {
+  color: #ffb3b3;
+  margin-bottom: 1rem;
+}
